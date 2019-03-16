@@ -4,6 +4,15 @@
         <posx>100</posx>
 		<posy>100</posy>
 		<win>
+			<0>
+				<command>send @all /equip ring1 'warp ring';@wait 11;send @all /item 'warp ring' me</command>
+				<text>
+					<![CDATA[warp ring
+					all boxes]]>
+				</text>
+				<x>10</x>
+				<y>1</y>
+			</0>
 		</win>
 		<alt>
 		</alt>
@@ -32,8 +41,8 @@
 			<3>
 				<command>send @others //pos follow off</command>
 				<text>
-					<![CDATA[pos
-					follow]]>
+					<![CDATA[follow
+					off]]>
 				</text>
 				<x>3</x>
 				<y>1</y>
@@ -79,7 +88,7 @@
 					<alt>
 					</alt>
 					<ctrl>
-						<backtick>
+						<!--backtick>
 							<command>input /ja "Last Resort" me</command>
 							<text>
 								<![CDATA[Last
@@ -87,7 +96,7 @@
 							</text>
 							<x>1</x>
 							<y>1</y>
-						</backtick>
+						</backtick-->
 					</ctrl>
 					<apps>
 					</apps>
@@ -95,6 +104,4 @@
 			</RUN>
 		</jobspecific>
     </jyouya>
-    <jyouyaya>
-    </jyouyaya>
 </settings>

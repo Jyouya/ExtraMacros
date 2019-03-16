@@ -126,7 +126,12 @@ keynames = {
 	equals='=',
 	backslash='\\',
 	period='.',
-	comma=','}
+	comma=',',
+	lbracket='[',
+	rbracket=']',
+	semicolon=';',
+	slash='/',
+	}
 
 function resolve_keyname(str)
 	return keynames[str] or str
@@ -288,25 +293,33 @@ apps_text = {}
 	-- Add keybind text on bottom
 
 -- Bind the keys
-for k, v in pairs(settings.win) do
-	bind_win(k,v)
-end
 
-for k, v in pairs(settings.alt) do
-	bind_alt(k,v)
-end
 
-for k, v in pairs(settings.ctrl) do
-	bind_ctrl(k,v)
+if settings.win then
+	for k, v in pairs(settings.win) do
+		bind_win(k,v)
+		print(k,v)
+	end
 end
-
-for k, v in pairs(settings.apps) do
-	bind_apps(k,v)
+if settings.alt then
+	for k, v in pairs(settings.alt) do
+		bind_alt(k,v)
+	end
+end
+if settings.ctrl then
+	for k, v in pairs(settings.ctrl) do
+		bind_ctrl(k,v)
+	end
+end
+if settings.apps then
+	for k, v in pairs(settings.apps) do
+		bind_apps(k,v)
+	end
 end
 
 me = windower.ffxi.get_player()
 
-if settings.jobspecific[me.main_job:lower()] then
+if settings.jobspecific and settings.jobspecific[me.main_job:lower()] then
 	--print('job specific binds detected')
 	for k, v in pairs(settings.jobspecific[me.main_job:lower()].win) do
 		bind_win(k,v)
