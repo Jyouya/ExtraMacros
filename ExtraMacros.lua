@@ -125,6 +125,7 @@ function bind_keys(mod, k, v)
 	display_book[mod] = true
 end
 
+me = windower.ffxi.get_player()
 -- Create the three macrobars
 for k, v in pairs{'win','alt','ctrl','apps'} do
 	windower.prim.create(v..'_book')
@@ -149,6 +150,29 @@ for k, v in pairs{'win','alt','ctrl','apps'} do
 			bind_keys(v,k2,v2)
 		end
 	end
+	
+	if settings.jobspecific and settings.jobspecific[me.main_job:lower()] then
+		for k2, v2 in pairs(settings.jobspecific[me.main_job:lower()][v]) do
+			if v2.x > x_repeat then
+				x_repeat = v2.x
+			end
+			if v2.y > y_repeat then
+				y_repeat = v2.y
+			end
+			bind_keys(v,k2,v2)
+		end
+		if settings.jobspecific[me.main_job:lower()][me.sub_job:lower()] then
+			for k2, v2 in pairs(settings.jobspecific[me.main_job:lower()][me.sub_job:lower()][v]) do
+				if v2.x > x_repeat then
+					x_repeat = v2.x
+				end
+				if v2.y > y_repeat then
+					y_repeat = v2.y
+				end
+				bind_keys(v,k2,v2)
+			end
+		end
+	end
 
 	windower.prim.set_repeat(v..'_book', x_repeat, y_repeat)
 	windower.prim.set_texture(v..'_book', windower.addon_path..'data/macro_tile.png')
@@ -157,7 +181,7 @@ for k, v in pairs{'win','alt','ctrl','apps'} do
 
 end
 
-me = windower.ffxi.get_player()
+--[[me = windower.ffxi.get_player()
 
 if settings.jobspecific and settings.jobspecific[me.main_job:lower()] then
 	for i, mod in pairs{'win','alt','ctrl','apps'} do
@@ -173,7 +197,7 @@ if settings.jobspecific and settings.jobspecific[me.main_job:lower()] then
 			end
 		end
 	end
-end
+end]]
 
 function format_text(str)
 	

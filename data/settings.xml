@@ -69,7 +69,7 @@
 				<command>rm multishot</command>
 				<text>
 					<![CDATA[rm Multi
-					shot]]>
+					Shot]]>
 				</text>
 				<x>4</x>
 				<y>2</y>
@@ -97,15 +97,15 @@
 					<alt>
 					</alt>
 					<ctrl>
-						<!--backtick>
+						<backtick>
 							<command>input /ja "Last Resort" me</command>
 							<text>
 								<![CDATA[Last
 								Resort]]>
 							</text>
-							<x>1</x>
-							<y>1</y>
-						</backtick-->
+							<x>2</x>
+							<y>2</y>
+						</backtick>
 					</ctrl>
 					<apps>
 					</apps>
