@@ -398,6 +398,9 @@ class MacroBar(Canvas):
         self.cellArray = [[None for x in range(self.rowCount)] for x in range(self.colCount)]  # 12 x 12 grid
 
         # fill in global keybinds
+        if not mod in self.settings["global"]:
+            self.settings["global"][mod] = {}
+
         for key, bind in self.settings["global"][mod].items():
             self.cellArray[int(bind["x"]) - 1][int(bind["y"]) - 1] = Macro(
                 modifier=mod,
